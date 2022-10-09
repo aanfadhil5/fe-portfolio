@@ -33,13 +33,10 @@ function Projects({}: Props) {
                 <span className="underline decoration-teal-300">
                   Case Study {i + 1} of {projects.length}:
                 </span>{" "}
-                UPS clone
+                In development
               </h4>
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                dolores perferendis consectetur a error iste autem ducimus,
-                facere laboriosam fuga consequatur maxime similique cumque
-                doloremque rem deserunt repudiandae esse quas.
+                In development
               </p>
             </div>
           </div>
