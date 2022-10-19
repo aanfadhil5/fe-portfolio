@@ -18,11 +18,11 @@ const Contact = (props: Props) => {
   };
   return (
     <div className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl hidden md:block">
         Contact
       </h3>
-      <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col space-y-6 md:space-y-10">
+        <h4 className="text-lg md:text-4xl font-semibold text-center">
           Now you know me.{" "}
           <span className="decoration-teal-300/60 underline">
             Let&apos;s talk
@@ -32,16 +32,16 @@ const Contact = (props: Props) => {
 
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-teal-300 h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+6281287673220</p>
+            <PhoneIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl">+6281287673220</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className="text-teal-300 h-7 w-7 animate-pulse" />
-            <p className="text-2xl">farhanfadhilah5@gmail.com</p>
+            <EnvelopeIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl">farhanfadhilah5@gmail.com</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className="text-teal-300 h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Bogor, Indonesia</p>
+            <MapPinIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" />
+            <p className="text-lg md:text-2xl">Bogor, Indonesia</p>
           </div>
         </div>
 

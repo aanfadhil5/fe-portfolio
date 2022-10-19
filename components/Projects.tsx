@@ -12,7 +12,7 @@ function Projects({}: Props) {
       transition={{ duration: 1.5 }}
       className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl hidden md:block">
         Projects
       </h3>
 
@@ -35,9 +35,7 @@ function Projects({}: Props) {
                 </span>{" "}
                 In development
               </h4>
-              <p className="text-lg text-center md:text-left">
-                In development
-              </p>
+              <p className="text-lg text-center md:text-left">In development</p>
             </div>
           </div>
         ))}
