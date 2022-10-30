@@ -36,12 +36,13 @@ export default function About({}: Props) {
         </h4>
         <p className="text-lg text-justify">
           I am a Bogor-based front-end practitioner developer passionate about
-          building a website with accessibility and mobile-first design. I am
+          building a website with accessibility and mobile-first design.
+          {/* I am
           currently an front-end developer intern at{" "}
           <a href="https://gunadarma.ac.id/" className="text-white/40">
             IBC Gunadarma
           </a>
-          .
+          . */}
         </p>
       </div>
     </motion.div>
