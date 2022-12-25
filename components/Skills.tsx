@@ -28,15 +28,15 @@ function Skills({}: Props) {
         <SkillHtml />
         <SkillCss />
         <SkillJs />
-        <SkillPython />
-        <SkillJava />
-        <SkillMysql />
-        <SkillPostgres />
         <SkillReact />
         <SkillNext />
         <SkillTailwind />
         <SkillVSCode />
         <SkillGit />
+        <SkillMysql />
+        <SkillPostgres />
+        <SkillJava />
+        <SkillPython />
       </div>
     </motion.div>
   );

@@ -27,13 +27,12 @@ const Contact = (props: Props) => {
           <span className="decoration-teal-300/60 underline">
             Let&apos;s talk
           </span>
-          🗿
         </h4>
 
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" />
-            <p className="text-lg md:text-2xl">+6281287673220</p>
+            {/* <PhoneIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" /> */}
+            {/* <p className="text-lg md:text-2xl">+6281287673220</p> */}
           </div>
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-teal-300 h-5 w-5 md:h-7 md:w-7 animate-pulse" />

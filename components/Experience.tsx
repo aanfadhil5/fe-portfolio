@@ -12,7 +12,7 @@ function Experience({}: Props) {
       </h3>
 
       <div className="w-full flex space-x-5 overflow-y-hidden p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-teal-300/80">
-        {/* <CardExperienceIntern /> */}
+        <CardExperienceIntern />
         <CardExperienceLabti />
       </div>
     </div>

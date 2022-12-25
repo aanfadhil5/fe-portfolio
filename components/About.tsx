@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -35,8 +36,9 @@ export default function About({}: Props) {
           background.
         </h4>
         <p className="text-lg text-justify">
-          I am a Bogor-based front-end practitioner developer passionate about
-          building a website with accessibility and mobile-first design.
+          It's nice to meet you! I'm Farhan, a creative person who enjoys making
+          things that people will find authentic and lovable. I'm currently
+          working on private projects for a client.
           {/* I am
           currently an front-end developer intern at{" "}
           <a href="https://gunadarma.ac.id/" className="text-white/40">
