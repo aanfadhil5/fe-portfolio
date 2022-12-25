@@ -14,13 +14,15 @@ const CardExperienceLabti = (props: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center border"
+        className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center "
         src="https://ik.imagekit.io/osw9g36vxc/logo-labti_uo3uqcX83.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665206063551"
         alt=""
       />
-      <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">Laboratory Assistant</h4>
-        <p className="font-bold text-2xl mt-1">Labti Gunadarma</p>
+      <div className="flex flex-col items-center px-0 md:px-10 md:block">
+        <h4 className="text-2xl md:text-4xl font-light">
+          Laboratory Assistant
+        </h4>
+        <p className="font-bold text-xl md:text-2xl mt-1">Labti Gunadarma</p>
         <div className="flex space-x-2 my-2">
           <img
             className="h-10 w-10 rounded-full"

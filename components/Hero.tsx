@@ -20,7 +20,7 @@ export default function Hero({}: Props) {
       <BackgroundCircle />
       <img
         src="https://ik.imagekit.io/osw9g36vxc/oriri-1_XZLsI_w9d.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665201180837"
-        className="rounded-full relative mx-auto object-cover w-32 h-32"
+        className="rounded-full relative mx-auto object-cover w-32 h-32 md:grayscale-0 grayscale"
         alt=""
       />
       <div className="z-20">

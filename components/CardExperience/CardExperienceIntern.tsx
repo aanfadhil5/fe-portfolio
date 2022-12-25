@@ -18,9 +18,11 @@ const CardExperienceIntern = (props: Props) => {
         src="https://rekreartive.com/wp-content/uploads/2018/10/Logo-Gunadarma-Universitas-Gunadarma-Original-PNG.png"
         alt=""
       />
-      <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">Front-end Developer Intern</h4>
-        <p className="font-bold text-2xl mt-1">IBC Gunadarma</p>
+      <div className="flex flex-col items-center px-0 md:px-10 md:block">
+        <h4 className="text-2xl md:text-4xl font-light">
+          Front-end Developer Intern
+        </h4>
+        <p className="font-bold text-xl md:text-2xl mt-1">IBC Gunadarma</p>
         <div className="flex space-x-2 my-2">
           <img
             className="h-10 w-10 rounded-full object-cover"
