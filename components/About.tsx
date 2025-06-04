@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 
 type Props = {};
 
@@ -32,6 +33,41 @@ export default function About({}: Props) {
       description: "Frontend expertise with backend integration experience",
     },
   ];
+
+  const handleDownloadCV = async () => {
+    try {
+      // Use the API route for better security and analytics
+      const response = await fetch("/api/download-cv");
+
+      if (!response.ok) {
+        throw new Error("Failed to download CV");
+      }
+
+      // Get the blob from response
+      const blob = await response.blob();
+
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Farhan_Fadhilah_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading CV:", error);
+      // Fallback to direct download
+      const link = document.createElement("a");
+      link.href = "/cv/Farhan_Fadhilah_CV.pdf";
+      link.download = "Farhan_Fadhilah_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
 
   return (
     <div className="text-center">
@@ -135,14 +171,24 @@ export default function About({}: Props) {
             </motion.div>
           ))}
 
-          {/* Call to Action */}
+          {/* Call to Action Buttons */}
           <motion.div
-            className="pt-4"
+            className="pt-4 space-y-3"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.0 }}
             viewport={{ once: true }}
           >
+            {/* Download CV Button */}
+            <button
+              onClick={handleDownloadCV}
+              className="btn-secondary w-full justify-center group"
+            >
+              <ArrowDownTrayIcon className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+              Download CV
+            </button>
+
+            {/* Contact Button */}
             <a
               href="#contact"
               className="btn-primary w-full justify-center"

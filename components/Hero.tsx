@@ -128,10 +128,10 @@ export default function Hero({}: Props) {
               Get In Touch
             </Link>
             <a
-              href="/resume.pdf"
+              href="/cv/Farhan_Fadhilah_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost"
+              className="btn-secondary"
             >
               Download CV
             </a>

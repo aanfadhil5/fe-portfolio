@@ -94,7 +94,9 @@ function Contact({}: Props) {
       title: "Download Resume",
       description: "Get a detailed overview of my experience",
       icon: "📄",
-      action: () => window.open("/resume.pdf", "_blank"),
+      action: () => {
+        window.open("/api/download-cv", "_blank");
+      },
       buttonText: "Download CV",
     },
   ];
