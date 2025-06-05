@@ -2,10 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import { useAnalytics } from "../hooks/useAnalytics";
 
 type Props = {};
 
 export default function About({}: Props) {
+  const { trackCVDownload } = useAnalytics();
   const skills = [
     "React.js",
     "Next.js",
@@ -36,6 +38,9 @@ export default function About({}: Props) {
 
   const handleDownloadCV = async () => {
     try {
+      // Track CV download initiation
+      trackCVDownload("about-section");
+
       // Generate a simple session ID for tracking (optional)
       const sessionId = `session_${Date.now()}_${Math.random()
         .toString(36)

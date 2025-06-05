@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useAnalytics } from "../hooks/useAnalytics";
 
 type Inputs = {
   name: string;
@@ -15,9 +16,14 @@ function Contact({}: Props) {
   const { register, handleSubmit, reset } = useForm<Inputs>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { trackCVDownload, trackContactForm } = useAnalytics();
 
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
     setIsSubmitting(true);
+    trackContactForm("submitted", {
+      name: formData.name,
+      subject: formData.subject,
+    });
 
     const subject = encodeURIComponent(
       formData.subject || "Portfolio Contact from " + formData.name
@@ -95,6 +101,9 @@ function Contact({}: Props) {
       description: "Get a detailed overview of my experience",
       icon: "📄",
       action: () => {
+        // Track CV download initiation
+        trackCVDownload("contact-section");
+
         // Generate session ID for tracking
         const sessionId = `session_${Date.now()}_${Math.random()
           .toString(36)

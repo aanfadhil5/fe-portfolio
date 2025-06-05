@@ -15,14 +15,16 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@next/font": "^13.4.19",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^10.16.4",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
+    "react-intersection-observer": "^9.5.2",
     "react-simple-typewriter": "^5.0.1",
-    "react-social-icons": "^5.15.0",
-    "react-intersection-observer": "^9.5.2"
+    "react-social-icons": "^5.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.9",
