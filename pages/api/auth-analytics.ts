@@ -8,11 +8,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { password } = req.body;
 
   // Use a server-side only environment variable (no NEXT_PUBLIC_ prefix)
-  const ANALYTICS_PASSWORD = process.env.ANALYTICS_PASSWORD;
+  const ANALYTICS_PASSWORD =
+    process.env.ANALYTICS_PASSWORD ||
+    process.env.NEXT_PUBLIC_ANALYTICS_PASSWORD;
 
   if (!ANALYTICS_PASSWORD) {
     console.error(
       "ANALYTICS_PASSWORD environment variable is not set. Please check Vercel environment variables."
+    );
+    console.error(
+      "Available env vars:",
+      Object.keys(process.env).filter((key) => key.includes("ANALYTICS"))
     );
     return res.status(500).json({ message: "Server configuration error" });
   }
