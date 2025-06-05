@@ -95,7 +95,23 @@ function Contact({}: Props) {
       description: "Get a detailed overview of my experience",
       icon: "📄",
       action: () => {
-        window.open("/api/download-cv", "_blank");
+        // Generate session ID for tracking
+        const sessionId = `session_${Date.now()}_${Math.random()
+          .toString(36)
+          .substr(2, 9)}`;
+
+        // Create a form to send headers with the download request
+        const form = document.createElement("form");
+        form.method = "GET";
+        form.action = "/api/download-cv";
+        form.target = "_blank";
+
+        // Add session ID as a query parameter since we can't send custom headers with window.open
+        form.action += `?sessionId=${sessionId}`;
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
       },
       buttonText: "Download CV",
     },

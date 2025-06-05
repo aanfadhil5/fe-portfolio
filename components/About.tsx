@@ -36,8 +36,18 @@ export default function About({}: Props) {
 
   const handleDownloadCV = async () => {
     try {
+      // Generate a simple session ID for tracking (optional)
+      const sessionId = `session_${Date.now()}_${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+
       // Use the API route for better security and analytics
-      const response = await fetch("/api/download-cv");
+      const response = await fetch("/api/download-cv", {
+        headers: {
+          "X-Session-ID": sessionId,
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to download CV");
@@ -57,6 +67,9 @@ export default function About({}: Props) {
       // Cleanup
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+
+      // Show success feedback (optional)
+      console.log("CV download started successfully");
     } catch (error) {
       console.error("Error downloading CV:", error);
       // Fallback to direct download
