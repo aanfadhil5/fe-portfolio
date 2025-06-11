@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 type Props = {
   darkMode: boolean;
@@ -70,7 +70,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-notion-text-muted dark:text-dark-text-muted hover:text-notion-accent dark:hover:text-dark-accent transition-colors duration-200 rounded-md hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-md"
                   aria-label={social.label}
                 >
                   {social.label === "LinkedIn" && (
@@ -123,7 +123,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
           {/* Dark Mode Toggle */}
           <motion.button
             onClick={toggleDarkMode}
-            className="p-2 text-notion-text-muted dark:text-dark-text-muted hover:text-notion-accent dark:hover:text-dark-accent transition-colors duration-200 rounded-md hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
+            className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-md"
             aria-label="Toggle dark mode"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -166,7 +166,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-notion-text-muted dark:text-dark-text-muted hover:text-notion-accent dark:hover:text-dark-accent transition-colors duration-200 rounded-md hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
+          className="md:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-md"
           aria-label="Toggle menu"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -244,7 +244,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 text-notion-text-muted dark:text-dark-text-muted hover:text-notion-accent dark:hover:text-dark-accent transition-colors duration-200 rounded-lg hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
+                        className="p-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-lg"
                         aria-label={social.label}
                       >
                         {social.label === "LinkedIn" && (
@@ -298,7 +298,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
                 <div className="flex justify-center">
                   <motion.button
                     onClick={toggleDarkMode}
-                    className="flex items-center space-x-2 px-4 py-2 text-notion-text-muted dark:text-dark-text-muted hover:text-notion-accent dark:hover:text-dark-accent transition-colors duration-200 rounded-lg hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
+                    className="flex items-center space-x-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 rounded-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.8 }}
