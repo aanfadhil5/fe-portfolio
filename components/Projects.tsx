@@ -1,480 +1,463 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
+import React, { useCallback, useMemo, useState } from 'react'
 
-type Props = {};
+type Props = {}
 
 interface ProjectData {
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  achievements: string[];
-  category: string;
-  year: string;
-  link?: string;
-  demo?: string;
-  featured: boolean;
+  title: string
+  subtitle: string
+  description: string
+  image: string
+  technologies: string[]
+  achievements: string[]
+  category: string
+  year: string
+  link?: string
+  demo?: string
+  featured: boolean
 }
 
+// Move static data outside component to prevent recreation on every render
 const projects: ProjectData[] = [
   {
-    title: "Enterprise ERP System",
-    subtitle: "PT. Andalan Fluid Sistem",
+    title: 'Enterprise ERP System',
+    subtitle: 'PT. Andalan Fluid Sistem',
     description:
-      "Spearheaded the complete modernization of an enterprise ERP system, migrating from Vue.js to React.js while architecting comprehensive business modules for Production Management, Sales, Inventory Control, User Management, and Analytics dashboards.",
+      'Spearheaded the complete modernization of an enterprise ERP system, migrating from Vue.js to React.js while architecting comprehensive business modules for Production Management, Sales, Inventory Control, User Management, and Analytics dashboards.',
     image:
-      "https://ik.imagekit.io/osw9g36vxc/afs-erp_UzkcZQSOs.png?updatedAt=1749057916800",
+      'https://ik.imagekit.io/osw9g36vxc/afs-erp_UzkcZQSOs.png?updatedAt=1749057916800',
     technologies: [
-      "React.js",
-      "JavaScript",
-      "Vite",
-      "TailwindCSS",
-      "Ant Design",
-      "Axios",
-      "PWA",
+      'React.js',
+      'JavaScript',
+      'Vite',
+      'TailwindCSS',
+      'Ant Design',
+      'Axios',
+      'PWA',
     ],
     achievements: [
-      "Scaled application to serve 1,000+ active users across Indonesia",
-      "Developed comprehensive business modules for Production Management, Sales, Inventory Control, User Management, and Analytics dashboards",
-      "Implemented Progressive Web App capabilities with offline support",
-      "Improved system performance and maintainability",
+      'Scaled application to serve 1,000+ active users across Indonesia',
+      'Developed comprehensive business modules for Production Management, Sales, Inventory Control, User Management, and Analytics dashboards',
+      'Implemented Progressive Web App capabilities with offline support',
+      'Improved system performance and maintainability',
     ],
-    category: "Enterprise Software",
-    year: "2023 - Present",
+    category: 'Enterprise Software',
+    year: '2023 - Present',
     featured: true,
   },
   {
-    title: "Data Migration Pipeline",
-    subtitle: "PT. Andalan Fluid Sistem",
+    title: 'Data Migration Pipeline',
+    subtitle: 'PT. Andalan Fluid Sistem',
     description:
-      "Developed a data migration pipeline using Python and SQLAlchemy to streamline the migration of data from an old system to a new one, ensuring data integrity and consistency.",
-    image: "",
-    technologies: ["Python", "SQLAlchemy", "PostgreSQL"],
+      'Developed a data migration pipeline using Python and SQLAlchemy to streamline the migration of data from an old system to a new one, ensuring data integrity and consistency.',
+    image: '',
+    technologies: ['Python', 'SQLAlchemy', 'PostgreSQL'],
     achievements: [],
-    category: "Enterprise Software",
-    year: "2025",
+    category: 'Enterprise Software',
+    year: '2025',
     featured: false,
   },
   {
-    title: "Financial Dashboard",
-    subtitle: "RSUI",
+    title: 'Financial Dashboard',
+    subtitle: 'RSUI',
     description:
-      "Developed an internal monitoring system that visualized critical financial health metrics for hospital management, providing real-time insights into financial performance and operational efficiency.",
+      'Developed an internal monitoring system that visualized critical financial health metrics for hospital management, providing real-time insights into financial performance and operational efficiency.',
     image:
-      "https://ik.imagekit.io/osw9g36vxc/Untitled_design_8BHSJuGvXv.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667142800170",
+      'https://ik.imagekit.io/osw9g36vxc/Untitled_design_8BHSJuGvXv.png?ik-sdk-version=javascript-1.4.3&updatedAt=1667142800170',
     technologies: [
-      "React.js",
-      "Tailwind CSS",
-      "JavaScript",
-      "Chart.js",
-      "REST API",
+      'React.js',
+      'Tailwind CSS',
+      'JavaScript',
+      'Chart.js',
+      'REST API',
     ],
     achievements: [
-      "Built comprehensive financial health monitoring system",
-      "Integrated real-time data visualization components",
-      "Improved financial decision-making through intuitive dashboards",
-      "Enhanced hospital management operational efficiency",
+      'Built comprehensive financial health monitoring system',
+      'Integrated real-time data visualization components',
+      'Improved financial decision-making through intuitive dashboards',
+      'Enhanced hospital management operational efficiency',
     ],
-    category: "Healthcare Technology",
-    year: "2022",
+    category: 'Healthcare Technology',
+    year: '2022',
     featured: false,
   },
   {
-    title: "hilangvery",
-    subtitle: "Case Study Clone of losethevery.com",
+    title: 'hilangvery',
+    subtitle: 'Case Study Clone of losethevery.com',
     description:
       "Transform basic adjectives into more powerful ones by merging them with 'very'",
     image:
-      "https://ik.imagekit.io/osw9g36vxc/MacBook_Air_mock_N3l4rJ2i_.png?updatedAt=1666280382617",
-    technologies: ["React.js", "JavaScript", "LLM"],
+      'https://ik.imagekit.io/osw9g36vxc/MacBook_Air_mock_N3l4rJ2i_.png?updatedAt=1666280382617',
+    technologies: ['React.js', 'JavaScript', 'LLM'],
     achievements: [],
-    demo: "https://hilangvery.vercel.app/",
-    category: "Mini Project",
-    year: "2022 - 2023",
+    demo: 'https://hilangvery.vercel.app/',
+    category: 'Mini Project',
+    year: '2022 - 2023',
     featured: false,
   },
-];
+]
 
 const categories = [
-  "All",
-  "Enterprise Software",
-  "Healthcare Technology",
-  "Mini Project",
-];
+  'All',
+  'Enterprise Software',
+  'Healthcare Technology',
+  'Mini Project',
+] as const
 
 const categoryColors = {
-  "Enterprise Software":
-    "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300",
-  "Healthcare Technology":
-    "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300",
-  "Mini Project":
-    "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300",
-};
+  'Enterprise Software':
+    'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300',
+  'Healthcare Technology':
+    'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300',
+  'Mini Project':
+    'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300',
+} as const
+
+// Memoized technology badge component
+const TechBadge = React.memo(({ tech }: { tech: string }) => (
+  <span className='tech-badge'>{tech}</span>
+))
+
+TechBadge.displayName = 'TechBadge'
+
+// Memoized achievement list component
+const AchievementList = React.memo(
+  ({ achievements }: { achievements: string[] }) => {
+    if (achievements.length === 0) return null
+
+    return (
+      <div className='space-y-2'>
+        <h4 className='text-sm font-semibold text-notion-text dark:text-dark-text'>
+          Key Achievements:
+        </h4>
+        <ul className='space-y-1'>
+          {achievements.map((achievement, index) => (
+            <li
+              key={index}
+              className='text-sm text-notion-text-secondary dark:text-dark-text-secondary flex items-start'
+            >
+              <span className='text-notion-accent dark:text-dark-accent mr-2 mt-1 flex-shrink-0'>
+                •
+              </span>
+              {achievement}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+)
+
+AchievementList.displayName = 'AchievementList'
+
+// Memoized project card component
+const ProjectCard = React.memo(
+  ({
+    project,
+    index,
+    isFeatured = false,
+  }: {
+    project: ProjectData
+    index: number
+    isFeatured?: boolean
+  }) => {
+    const handleLinkClick = useCallback((url: string) => {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }, [])
+
+    return (
+      <motion.div
+        className='project-card group'
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: index * 0.2 }}
+        viewport={{ once: true, margin: '-50px' }}
+        whileHover={{ y: -8 }}
+      >
+        {/* Project Image */}
+        {project.image && (
+          <div className='project-image-container relative overflow-hidden rounded-t-xl'>
+            <img
+              src={project.image}
+              alt={project.title}
+              className='project-image'
+            />
+            <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+
+            {/* Project Category Badge */}
+            <div className='absolute top-4 left-4'>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  categoryColors[
+                    project.category as keyof typeof categoryColors
+                  ]
+                }`}
+              >
+                {project.category}
+              </span>
+            </div>
+
+            {/* Featured Badge */}
+            {isFeatured && (
+              <div className='absolute top-4 right-4'>
+                <span className='px-3 py-1 bg-notion-accent dark:bg-dark-accent text-white text-xs font-semibold rounded-full'>
+                  Featured
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Project Content */}
+        <div className='project-content'>
+          {/* Project Header */}
+          <div className='mb-4'>
+            <div className='flex items-start justify-between mb-2'>
+              <h3 className='project-title'>{project.title}</h3>
+              <span className='text-xs text-notion-text-muted dark:text-dark-text-muted flex-shrink-0 ml-2'>
+                {project.year}
+              </span>
+            </div>
+            <p className='project-subtitle'>{project.subtitle}</p>
+          </div>
+
+          {/* Project Description */}
+          <p className='project-description'>{project.description}</p>
+
+          {/* Technologies */}
+          <div className='mb-4'>
+            <h4 className='text-sm font-semibold text-notion-text dark:text-dark-text mb-2'>
+              Technologies:
+            </h4>
+            <div className='flex flex-wrap gap-2'>
+              {project.technologies.map(tech => (
+                <TechBadge key={tech} tech={tech} />
+              ))}
+            </div>
+          </div>
+
+          {/* Achievements */}
+          <AchievementList achievements={project.achievements} />
+
+          {/* Project Links */}
+          {(project.link || project.demo) && (
+            <div className='flex gap-3 mt-6'>
+              {project.demo && (
+                <button
+                  onClick={() => handleLinkClick(project.demo!)}
+                  className='btn-primary text-sm'
+                >
+                  Live Demo
+                </button>
+              )}
+              {project.link && (
+                <button
+                  onClick={() => handleLinkClick(project.link!)}
+                  className='btn-secondary text-sm'
+                >
+                  View Project
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    )
+  }
+)
+
+ProjectCard.displayName = 'ProjectCard'
+
+// Memoized category filter component
+const CategoryFilter = React.memo(
+  ({
+    categories,
+    selectedCategory,
+    onCategoryChange,
+  }: {
+    categories: readonly string[]
+    selectedCategory: string
+    onCategoryChange: (category: string) => void
+  }) => {
+    return (
+      <motion.div
+        className='flex flex-wrap justify-center gap-2 mb-12'
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => onCategoryChange(category)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              selectedCategory === category
+                ? 'bg-notion-accent dark:bg-dark-accent text-white'
+                : 'bg-notion-bg-secondary dark:bg-dark-bg-secondary text-notion-text-secondary dark:text-dark-text-secondary hover:bg-notion-border dark:hover:bg-dark-border'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </motion.div>
+    )
+  }
+)
+
+CategoryFilter.displayName = 'CategoryFilter'
 
 function Projects({}: Props) {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
-  const filteredProjects =
-    selectedCategory === "All"
+  // Memoize filtered projects to avoid recalculation on every render
+  const filteredProjects = useMemo(() => {
+    return selectedCategory === 'All'
       ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+      : projects.filter(project => project.category === selectedCategory)
+  }, [selectedCategory])
 
-  const featuredProjects = projects.filter((project) => project.featured);
+  // Memoize featured projects to avoid recalculation on every render
+  const featuredProjects = useMemo(() => {
+    return projects.filter(project => project.featured)
+  }, [])
+
+  // Memoized category change handler
+  const handleCategoryChange = useCallback((category: string) => {
+    setSelectedCategory(category)
+  }, [])
 
   return (
-    <div className="text-center">
+    <div className='text-center'>
       {/* Section Header */}
       <motion.div
-        className="mb-16"
+        className='mb-16'
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="section-title text-center">Featured Projects</h2>
-        <p className="section-subtitle text-center">
+        <h2 className='section-title text-center'>Featured Projects</h2>
+        <p className='section-subtitle text-center'>
           A showcase of my work across different domains and technologies
         </p>
       </motion.div>
 
       {/* Featured Projects */}
-      <div className="mb-16">
+      <div className='mb-16'>
         <motion.div
-          className="mb-8"
+          className='mb-8'
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-semibold text-notion-text dark:text-dark-text mb-4">
+          <h3 className='text-2xl font-semibold text-notion-text dark:text-dark-text mb-4'>
             ⭐ Featured Work
           </h3>
-          <p className="text-notion-text-secondary dark:text-dark-text-secondary">
+          <p className='text-notion-text-secondary dark:text-dark-text-secondary'>
             My most impactful and complex projects
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className='grid md:grid-cols-2 gap-8 mb-12'>
           {featuredProjects.map((project, index) => (
-            <motion.div
+            <ProjectCard
               key={project.title}
-              className="project-card group"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true, margin: "-50px" }}
-              whileHover={{ y: -8 }}
-            >
-              {/* Project Image */}
-              <div className="project-image-container relative overflow-hidden rounded-t-xl">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                {/* Project Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      categoryColors[
-                        project.category as keyof typeof categoryColors
-                      ]
-                    }`}
-                  >
-                    {project.category}
-                  </span>
-                </div>
-
-                {/* Featured Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-notion-accent dark:bg-dark-accent text-white text-xs font-semibold rounded-full">
-                    Featured
-                  </span>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="project-content">
-                <div className="mb-4">
-                  <h4 className="project-title">{project.title}</h4>
-                  <p className="text-notion-accent dark:text-dark-accent font-medium text-sm">
-                    {project.subtitle}
-                  </p>
-                  <p className="text-notion-text-muted dark:text-dark-text-muted text-xs mt-1">
-                    {project.year}
-                  </p>
-                </div>
-
-                <p className="project-description mb-4">
-                  {project.description}
-                </p>
-
-                {/* Key Achievements */}
-                <div className="mb-4">
-                  <h5 className="text-sm font-semibold text-notion-text dark:text-dark-text mb-2 text-left">
-                    Key Achievements:
-                  </h5>
-                  <ul className="space-y-1 text-left">
-                    {project.achievements
-                      .slice(0, 3)
-                      .map((achievement, achIndex) => (
-                        <li
-                          key={achIndex}
-                          className="flex items-start text-xs text-notion-text-secondary dark:text-dark-text-secondary"
-                        >
-                          <div className="w-1 h-1 bg-notion-accent dark:bg-dark-accent rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                          {achievement}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-
-                {/* Technologies */}
-                <div className="project-tech mb-4">
-                  {project.technologies.slice(0, 6).map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag text-xs">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 6 && (
-                    <span className="tech-tag text-xs opacity-60">
-                      +{project.technologies.length - 6}
-                    </span>
-                  )}
-                </div>
-
-                {/* Project Links */}
-                <div className="flex space-x-3">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary flex-1 text-sm py-2"
-                    >
-                      <svg
-                        className="w-4 h-4 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        />
-                      </svg>
-                      View Demo
-                    </a>
-                  )}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-secondary flex-1 text-sm py-2"
-                    >
-                      <svg
-                        className="w-4 h-4 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                        />
-                      </svg>
-                      View Code
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+              project={project}
+              index={index}
+              isFeatured={true}
+            />
           ))}
         </div>
       </div>
 
-      {/* Category Filter */}
-      <motion.div
-        className="mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-xl font-semibold text-notion-text dark:text-dark-text mb-6">
-          All Projects
-        </h3>
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                selectedCategory === category
-                  ? "bg-notion-accent dark:bg-dark-accent text-white"
-                  : "bg-notion-bg-secondary dark:bg-dark-bg-secondary text-notion-text-secondary dark:text-dark-text-secondary hover:bg-notion-bg-hover dark:hover:bg-dark-bg-hover"
-              }`}
-            >
-              {category}
-            </button>
+      {/* All Projects */}
+      <div>
+        <motion.div
+          className='mb-8'
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h3 className='text-2xl font-semibold text-notion-text dark:text-dark-text mb-4'>
+            🚀 All Projects
+          </h3>
+          <p className='text-notion-text-secondary dark:text-dark-text-secondary'>
+            Complete portfolio of my development work
+          </p>
+        </motion.div>
+
+        {/* Category Filter */}
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
+        />
+
+        {/* Projects Grid */}
+        <motion.div
+          className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* All Projects Grid */}
-      <motion.div
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        {filteredProjects.map((project, index) => (
+        {/* No Projects Message */}
+        {filteredProjects.length === 0 && (
           <motion.div
-            key={`${project.title}-${selectedCategory}`}
-            className="project-card group"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            layout
-          >
-            {/* Project Image */}
-            <div className="project-image-container relative overflow-hidden rounded-t-xl">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image h-40"
-              />
-              <div className="absolute top-3 left-3">
-                <span
-                  className={`px-2 py-1 rounded text-xs font-medium ${
-                    categoryColors[
-                      project.category as keyof typeof categoryColors
-                    ]
-                  }`}
-                >
-                  {project.category}
-                </span>
-              </div>
-              {project.featured && (
-                <div className="absolute top-3 right-3">
-                  <span className="px-2 py-1 bg-notion-accent dark:bg-dark-accent text-white text-xs font-medium rounded">
-                    Featured
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Project Content */}
-            <div className="project-content">
-              <div className="mb-3">
-                <h4 className="project-title text-lg">{project.title}</h4>
-                <p className="text-notion-accent dark:text-dark-accent font-medium text-sm">
-                  {project.subtitle}
-                </p>
-                <p className="text-notion-text-muted dark:text-dark-text-muted text-xs">
-                  {project.year}
-                </p>
-              </div>
-
-              <p className="project-description text-sm mb-3">
-                {project.description.length > 120
-                  ? `${project.description.substring(0, 120)}...`
-                  : project.description}
-              </p>
-
-              {/* Technologies */}
-              <div className="project-tech mb-3">
-                {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag text-xs">
-                    {tech}
-                  </span>
-                ))}
-                {project.technologies.length > 4 && (
-                  <span className="tech-tag text-xs opacity-60">
-                    +{project.technologies.length - 4}
-                  </span>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Project Stats */}
-      <motion.div
-        className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        viewport={{ once: true }}
-      >
-        {[
-          { number: projects.length.toString(), label: "Total Projects" },
-          {
-            number: featuredProjects.length.toString(),
-            label: "Featured Work",
-          },
-          { number: "1000+", label: "Users Served" },
-          { number: "3+", label: "Years Active" },
-        ].map((stat, index) => (
-          <motion.div
-            key={stat.label}
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+            className='text-center py-16'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="text-2xl md:text-3xl font-bold text-notion-accent dark:text-dark-accent mb-2">
-              {stat.number}
-            </div>
-            <div className="text-sm text-notion-text-secondary dark:text-dark-text-secondary">
-              {stat.label}
-            </div>
+            <p className='text-notion-text-secondary dark:text-dark-text-secondary'>
+              No projects found in this category.
+            </p>
           </motion.div>
-        ))}
-      </motion.div>
+        )}
+      </div>
 
       {/* Call to Action */}
       <motion.div
-        className="mt-16"
+        className='mt-16'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
         viewport={{ once: true }}
       >
-        <a
-          href="#contact"
-          className="btn-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById("contact")?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }}
-        >
-          Let&apos;s Build Something Together
-        </a>
+        <div className='bg-notion-bg-secondary dark:bg-dark-bg-secondary rounded-xl p-8'>
+          <h3 className='text-xl font-semibold text-notion-text dark:text-dark-text mb-4'>
+            Interested in working together?
+          </h3>
+          <p className='text-notion-text-secondary dark:text-dark-text-secondary mb-6'>
+            Let&apos;s discuss your next project and how I can help bring your
+            ideas to life.
+          </p>
+          <a
+            href='#contact'
+            className='btn-primary'
+            onClick={e => {
+              e.preventDefault()
+              document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              })
+            }}
+          >
+            Get In Touch
+          </a>
+        </div>
       </motion.div>
     </div>
-  );
+  )
 }
 
-export default Projects;
+export default React.memo(Projects)

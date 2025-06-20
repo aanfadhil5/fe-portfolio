@@ -13,14 +13,12 @@ const customJestConfig = {
   collectCoverageFrom: [
     'components/**/*.{js,jsx,ts,tsx}',
     'pages/**/*.{js,jsx,ts,tsx}',
+    'lib/**/*.{js,jsx,ts,tsx}',
     'hooks/**/*.{js,jsx,ts,tsx}',
-    '!pages/_app.tsx',
-    '!pages/_document.tsx',
-    '!pages/api/**',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
   },
   transformIgnorePatterns: [
