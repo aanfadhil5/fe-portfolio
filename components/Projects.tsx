@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useCallback, useMemo, useState } from 'react'
+import OptimizedImage from './OptimizedImage'
 
 type Props = {}
 
@@ -177,10 +178,15 @@ const ProjectCard = React.memo(
         {/* Project Image */}
         {project.image && (
           <div className='project-image-container relative overflow-hidden rounded-t-xl'>
-            <img
+            <OptimizedImage
               src={project.image}
               alt={project.title}
+              width={600}
+              height={400}
               className='project-image'
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              placeholder='blur'
+              priority={isFeatured}
             />
             <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
