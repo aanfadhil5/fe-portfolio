@@ -11,7 +11,13 @@ jest.mock('next/image', () => {
       if (onLoad) onLoad()
     }, 100)
 
-    return <img {...restProps} data-testid='next-image' />
+    return (
+      <img
+        {...restProps}
+        data-testid='next-image'
+        alt={restProps.alt || 'test image'}
+      />
+    )
   }
 })
 
