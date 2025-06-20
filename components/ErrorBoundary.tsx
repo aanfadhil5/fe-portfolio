@@ -1,4 +1,5 @@
 import React from 'react'
+import { trackError } from './ErrorTracking'
 
 interface ErrorBoundaryState {
   hasError: boolean
@@ -31,6 +32,13 @@ class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    // Track error with our error tracking system
+    trackError(error, {
+      componentStack: errorInfo.componentStack,
+      errorBoundary: true,
+      severity: 'high' as const,
+    })
+
     // Log error to monitoring service (e.g., Sentry)
     // eslint-disable-next-line no-console
     console.error('Error caught by boundary:', error, errorInfo)
