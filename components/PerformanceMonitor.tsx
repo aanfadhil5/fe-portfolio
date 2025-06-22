@@ -88,12 +88,12 @@ const PerformanceMonitor = () => {
 
     // Dynamic import of web-vitals library
     import('web-vitals')
-      .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-        getCLS(handleWebVitals)
-        getFID(handleWebVitals)
-        getFCP(handleWebVitals)
-        getLCP(handleWebVitals)
-        getTTFB(handleWebVitals)
+      .then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        onCLS(handleWebVitals)
+        onINP(handleWebVitals)
+        onFCP(handleWebVitals)
+        onLCP(handleWebVitals)
+        onTTFB(handleWebVitals)
       })
       .catch(() => {
         // Fallback: Use Performance Observer API if web-vitals is not available

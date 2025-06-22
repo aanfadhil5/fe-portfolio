@@ -94,7 +94,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   if (fill) {
     return (
       <div className='relative'>
-        <Image {...imageProps} fill />
+        <Image {...imageProps} fill alt={alt} />
         {isLoading && (
           <div className='absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse'>
             <div className='w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin'></div>
@@ -106,7 +106,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   return (
     <div className='relative'>
-      <Image {...imageProps} width={width} height={height} />
+      <Image {...imageProps} width={width} height={height} alt={alt} />
       {isLoading && (
         <div
           className='absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse'

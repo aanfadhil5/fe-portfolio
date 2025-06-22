@@ -57,24 +57,19 @@ If you want to use a different filename, update these files:
 1. **components/About.tsx** (line ~40):
 
 ```typescript
-link.download = "Your_New_Filename.pdf";
+link.download = 'Your_New_Filename.pdf'
 ```
 
 2. **pages/api/download-cv.ts** (line ~12):
 
 ```typescript
-const cvPath = path.join(
-  process.cwd(),
-  "public",
-  "cv",
-  "Your_New_Filename.pdf"
-);
+const cvPath = path.join(process.cwd(), 'public', 'cv', 'Your_New_Filename.pdf')
 ```
 
 3. **components/Hero.tsx**:
 
 ```typescript
-href = "/cv/Your_New_Filename.pdf";
+href = '/cv/Your_New_Filename.pdf'
 ```
 
 ### Add Download Tracking
@@ -85,9 +80,9 @@ Extend the API route to track downloads:
 // In pages/api/download-cv.ts
 console.log(
   `CV downloaded at ${new Date().toISOString()} from IP: ${
-    req.headers["x-forwarded-for"] || req.connection.remoteAddress
+    req.headers['x-forwarded-for'] || req.connection.remoteAddress
   }`
-);
+)
 
 // You can extend this to save to a database:
 // await saveDownloadLog({

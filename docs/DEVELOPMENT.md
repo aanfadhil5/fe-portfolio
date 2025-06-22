@@ -304,6 +304,7 @@ describe('Component', () => {
    ```
 
 4. **Test Error States**
+
    ```typescript
    it('displays error message on failure', async () => {
      mockFetch.mockRejectedValueOnce(new Error('API Error'))
