@@ -1,0 +1,30 @@
+{
+  "greeting": "Halo, saya",
+  "name": "Farhan Fadhilah",
+  "title": "Pengembang Full Stack",
+  "subtitle": "Saya menciptakan pengalaman digital yang luar biasa",
+  "description": "Membuat pengalaman pengguna yang luar biasa dengan teknologi modern seperti React.js",
+  "cta_primary": "Lihat Karya Saya",
+  "cta_secondary": "Hubungi Saya",
+  "cta_download_cv": "Unduh CV",
+  "scroll_down": "Gulir untuk menjelajah",
+  "learn_more_about_me": "Pelajari Lebih Lanjut Tentang Saya",
+  "years_experience": "Tahun Pengalaman",
+  "projects_completed": "Proyek Selesai",
+  "happy_clients": "Klien Puas",
+  "technologies_mastered": "Teknologi Dikuasai",
+  "stats_description": "Membangun solusi digital dengan passion dan presisi",
+  "job_titles": [
+    "Pengembang Frontend",
+    "Spesialis React.js",
+    "Pembangun Solusi Enterprise"
+  ],
+  "specialties": [
+    "Pengembangan Web Modern",
+    "Desain Responsif",
+    "Pengembangan API",
+    "Desain Database",
+    "Optimasi Performa",
+    "Pengalaman Pengguna"
+  ]
+} 

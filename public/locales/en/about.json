@@ -1,0 +1,34 @@
+{
+  "title": "About Me",
+  "subtitle": "Get to know me better",
+  "description": "I'm a passionate full-stack developer with a strong foundation in modern web technologies. I love creating digital experiences that are not only functional but also delightful to use.",
+  "background": "With a background in computer science and years of hands-on experience, I specialize in building scalable web applications using cutting-edge technologies like React, Node.js, and cloud platforms.",
+  "passion": "I'm passionate about clean code, user experience, and continuous learning. When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.",
+  "mission": "My mission is to create digital solutions that make a positive impact on people's lives and businesses.",
+  "values": {
+    "title": "My Values",
+    "quality": {
+      "title": "Quality",
+      "description": "I believe in writing clean, maintainable code that stands the test of time."
+    },
+    "innovation": {
+      "title": "Innovation",
+      "description": "Always exploring new technologies and approaches to solve complex problems."
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "description": "Working together with teams to achieve common goals and deliver exceptional results."
+    },
+    "learning": {
+      "title": "Continuous Learning",
+      "description": "Staying updated with the latest trends and best practices in web development."
+    }
+  },
+  "fun_facts": {
+    "title": "Fun Facts",
+    "coffee_cups": "Coffee cups consumed daily",
+    "lines_of_code": "Lines of code written",
+    "github_commits": "GitHub commits this year",
+    "stack_overflow": "Stack Overflow reputation"
+  }
+} 

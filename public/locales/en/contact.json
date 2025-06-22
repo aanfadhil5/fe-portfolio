@@ -1,0 +1,77 @@
+{
+  "title": "Get In Touch",
+  "subtitle": "Let's work together",
+  "description": "I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!",
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Your full name",
+      "error": "Please enter your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "your.email@example.com",
+      "error": "Please enter a valid email address"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "What's this about?",
+      "error": "Please enter a subject"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Tell me about your project or just say hello...",
+      "error": "Please enter your message"
+    },
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again."
+  },
+  "contact_info": {
+    "title": "Contact Information",
+    "email": {
+      "label": "Email",
+      "action": "Send Email"
+    },
+    "phone": {
+      "label": "Phone",
+      "action": "Call Now"
+    },
+    "location": {
+      "label": "Location",
+      "action": "View on Map"
+    },
+    "availability": {
+      "label": "Availability",
+      "status": "Available for new projects"
+    }
+  },
+  "social": {
+    "title": "Follow Me",
+    "description": "Connect with me on social media",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "cta": {
+    "title": "Ready to start a project?",
+    "description": "Let's discuss how we can bring your ideas to life",
+    "button": "Start a Project",
+    "alternative": "Or just say hello!"
+  },
+  "response_time": {
+    "title": "Response Time",
+    "description": "I typically respond within 24 hours"
+  },
+  "services": {
+    "title": "Services I Offer",
+    "web_development": "Web Development",
+    "mobile_development": "Mobile Development",
+    "ui_design": "UI/UX Design",
+    "consulting": "Technical Consulting",
+    "maintenance": "Website Maintenance"
+  }
+} 

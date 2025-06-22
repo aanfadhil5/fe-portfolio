@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import React, { useCallback, useMemo, useState } from 'react'
+import LanguageSwitcher from './LanguageSwitcher'
 
 type Props = {
   darkMode: boolean
@@ -8,14 +10,6 @@ type Props = {
 }
 
 // Move static data outside component to prevent recreation on every render
-const navItems = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-] as const
-
 const socialLinks = [
   { href: 'https://linkedin.com/in/aanfadhil5', label: 'LinkedIn' },
   { href: 'https://github.com/aanfadhil5', label: 'GitHub' },
@@ -153,7 +147,15 @@ DarkModeToggle.displayName = 'DarkModeToggle'
 
 // Memoized mobile menu component
 const MobileMenu = React.memo(
-  ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  ({
+    isOpen,
+    onClose,
+    navItems,
+  }: {
+    isOpen: boolean
+    onClose: () => void
+    navItems: Array<{ href: string; label: string }>
+  }) => {
     const handleNavClick = useCallback(
       (href: string) => {
         onClose()
@@ -236,6 +238,13 @@ const MobileMenu = React.memo(
                 {/* Social Links */}
                 <div className='mt-auto'>
                   <h3 className='text-sm font-semibold text-gray-900 dark:text-white mb-4'>
+                    Language
+                  </h3>
+                  <div className='mb-6'>
+                    <LanguageSwitcher variant='inline' showNativeName={false} />
+                  </div>
+
+                  <h3 className='text-sm font-semibold text-gray-900 dark:text-white mb-4'>
                     Connect
                   </h3>
                   <div className='flex space-x-4'>
@@ -260,15 +269,28 @@ const MobileMenu = React.memo(
 MobileMenu.displayName = 'MobileMenu'
 
 export default function Header({ darkMode, toggleDarkMode }: Props) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t } = useTranslation('navigation')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const navItems = useMemo(
+    () => [
+      { href: '#hero', label: t('home') },
+      { href: '#about', label: t('about') },
+      { href: '#experience', label: t('experience') },
+      { href: '#skills', label: t('skills') },
+      { href: '#projects', label: t('projects') },
+      { href: '#contact', label: t('contact') },
+    ],
+    [t]
+  )
 
   // Memoized handlers
   const handleMenuToggle = useCallback(() => {
-    setIsMenuOpen(prev => !prev)
+    setIsMobileMenuOpen(prev => !prev)
   }, [])
 
   const handleMenuClose = useCallback(() => {
-    setIsMenuOpen(false)
+    setIsMobileMenuOpen(false)
   }, [])
 
   // Memoized menu icon
@@ -280,7 +302,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
         stroke='currentColor'
         viewBox='0 0 24 24'
       >
-        {isMenuOpen ? (
+        {isMobileMenuOpen ? (
           <path
             strokeLinecap='round'
             strokeLinejoin='round'
@@ -297,7 +319,7 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
         )}
       </svg>
     )
-  }, [isMenuOpen])
+  }, [isMobileMenuOpen])
 
   return (
     <header className='nav'>
@@ -338,6 +360,9 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
             ))}
           </div>
 
+          {/* Language Switcher */}
+          <LanguageSwitcher className='z-50' />
+
           {/* Dark Mode Toggle */}
           <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
@@ -357,7 +382,11 @@ export default function Header({ darkMode, toggleDarkMode }: Props) {
       </div>
 
       {/* Mobile Menu */}
-      <MobileMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={handleMenuClose}
+        navItems={navItems}
+      />
     </header>
   )
 }

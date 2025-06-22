@@ -1,0 +1,23 @@
+{
+  "home": "Beranda",
+  "about": "Tentang",
+  "experience": "Pengalaman",
+  "skills": "Keahlian",
+  "projects": "Proyek",
+  "contact": "Kontak",
+  "blog": "Blog",
+  "resume": "Resume",
+  "portfolio": "Portofolio",
+  "services": "Layanan",
+  "testimonials": "Testimoni",
+  "go_to_section": "Pergi ke bagian {{section}}",
+  "main_menu": "Menu Utama",
+  "mobile_menu": "Menu Mobile",
+  "social_links": "Tautan Sosial",
+  "footer_menu": "Menu Footer",
+  "breadcrumb": "Breadcrumb",
+  "current_page": "Halaman saat ini",
+  "page_navigation": "Navigasi Halaman",
+  "scroll_to_top": "Gulir ke atas",
+  "scroll_indicator": "Indikator gulir"
+} 

@@ -1,21 +1,28 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 
 type Props = {}
 
 export default function Hero({}: Props) {
+  const { t } = useTranslation('hero')
+
+  const jobTitles = t('job_titles', { returnObjects: true }) as string[]
+
   const [text] = useTypewriter({
-    words: [
-      'Frontend Developer',
-      'React.js Specialist',
-      'Enterprise Solution Builder',
-    ],
+    words: jobTitles,
     loop: true,
     delaySpeed: 2000,
     deleteSpeed: 50,
     typeSpeed: 80,
   })
+
+  const stats = [
+    { number: '3+', label: t('years_experience') },
+    { number: '1000+', label: 'Users Served' }, // Keep as is since not in translation
+    { number: '15+', label: t('projects_completed') },
+  ]
 
   return (
     <div className='hero'>
@@ -35,7 +42,7 @@ export default function Hero({}: Props) {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className='text-lg md:text-xl text-notion-text-secondary dark:text-dark-text-secondary'>
-              👋 Hello, I&apos;m
+              👋 {t('greeting')}
             </p>
             <h1 id='hero-heading' className='hero-title'>
               Farhan{' '}
@@ -56,13 +63,7 @@ export default function Hero({}: Props) {
               <span>{text}</span>
               <Cursor cursorColor='#2383e2' />
             </div>
-            <p className='hero-subtitle'>
-              Crafting exceptional user experiences with modern technologies
-              like{' '}
-              <span className='font-semibold text-notion-accent dark:text-dark-accent'>
-                React.js
-              </span>
-            </p>
+            <p className='hero-subtitle'>{t('description')}</p>
           </motion.div>
 
           {/* Profile Image */}
@@ -91,11 +92,7 @@ export default function Hero({}: Props) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {[
-              { number: '3+', label: 'Years Experience' },
-              { number: '1000+', label: 'Users Served' },
-              { number: '15+', label: 'Projects Completed' },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 className='text-center'
@@ -121,10 +118,10 @@ export default function Hero({}: Props) {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             <Link href='#projects' className='btn-primary'>
-              View My Work
+              {t('cta_primary')}
             </Link>
             <Link href='#contact' className='btn-secondary'>
-              Get In Touch
+              {t('cta_secondary')}
             </Link>
             <a
               href='/cv/Farhan_Fadhilah_CV.pdf'
@@ -132,7 +129,7 @@ export default function Hero({}: Props) {
               rel='noopener noreferrer'
               className='btn-secondary'
             >
-              Download CV
+              {t('cta_download_cv')}
             </a>
           </motion.div>
 
@@ -154,7 +151,7 @@ export default function Hero({}: Props) {
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <span className='text-sm font-medium'>Scroll to explore</span>
+              <span className='text-sm font-medium'>{t('scroll_down')}</span>
               <svg
                 className='w-5 h-5'
                 fill='none'

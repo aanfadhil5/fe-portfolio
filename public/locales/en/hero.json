@@ -1,0 +1,30 @@
+{
+  "greeting": "Hi, I'm",
+  "name": "Farhan Fadhilah",
+  "title": "Full Stack Developer",
+  "subtitle": "I create amazing digital experiences",
+  "description": "Crafting exceptional user experiences with modern technologies like React.js",
+  "cta_primary": "View My Work",
+  "cta_secondary": "Get In Touch",
+  "cta_download_cv": "Download CV",
+  "scroll_down": "Scroll to explore",
+  "learn_more_about_me": "Learn More About Me",
+  "years_experience": "Years Experience",
+  "projects_completed": "Projects Completed",
+  "happy_clients": "Happy Clients",
+  "technologies_mastered": "Technologies Mastered",
+  "stats_description": "Building digital solutions with passion and precision",
+  "job_titles": [
+    "Frontend Developer",
+    "React.js Specialist",
+    "Enterprise Solution Builder"
+  ],
+  "specialties": [
+    "Modern Web Development",
+    "Responsive Design",
+    "API Development",
+    "Database Design",
+    "Performance Optimization",
+    "User Experience"
+  ]
+} 

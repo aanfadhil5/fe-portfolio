@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "about": "About",
+  "experience": "Experience",
+  "skills": "Skills",
+  "projects": "Projects",
+  "contact": "Contact",
+  "blog": "Blog",
+  "resume": "Resume",
+  "portfolio": "Portfolio",
+  "services": "Services",
+  "testimonials": "Testimonials",
+  "go_to_section": "Go to {{section}} section",
+  "main_menu": "Main Menu",
+  "mobile_menu": "Mobile Menu",
+  "social_links": "Social Links",
+  "footer_menu": "Footer Menu",
+  "breadcrumb": "Breadcrumb",
+  "current_page": "Current page",
+  "page_navigation": "Page Navigation",
+  "scroll_to_top": "Scroll to top",
+  "scroll_indicator": "Scroll indicator"
+} 

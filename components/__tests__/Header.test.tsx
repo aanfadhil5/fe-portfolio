@@ -12,6 +12,49 @@ jest.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: any) => children,
 }))
 
+// Mock next-i18next
+jest.mock('next-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string) => {
+      const translations: Record<string, string> = {
+        home: 'Home',
+        about: 'About',
+        experience: 'Experience',
+        skills: 'Skills',
+        projects: 'Projects',
+        contact: 'Contact',
+        language: 'Language',
+      }
+      return translations[key] || key
+    },
+  }),
+}))
+
+// Mock Next.js router
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    locale: 'en',
+    locales: ['en', 'id'],
+    asPath: '/',
+    push: jest.fn(),
+  }),
+}))
+
+// Mock LanguageSwitcher component
+jest.mock('../LanguageSwitcher', () => {
+  return function MockLanguageSwitcher({
+    variant,
+    showNativeName,
+    className,
+  }: any) {
+    return (
+      <div data-testid='language-switcher' className={className}>
+        Language Switcher
+      </div>
+    )
+  }
+})
+
 describe('Header Component', () => {
   const mockToggleDarkMode = jest.fn()
 
@@ -28,6 +71,7 @@ describe('Header Component', () => {
   it('renders all navigation items', () => {
     render(<Header darkMode={false} toggleDarkMode={mockToggleDarkMode} />)
 
+    expect(screen.getByText('Home')).toBeInTheDocument()
     expect(screen.getByText('About')).toBeInTheDocument()
     expect(screen.getByText('Experience')).toBeInTheDocument()
     expect(screen.getByText('Skills')).toBeInTheDocument()
@@ -66,5 +110,12 @@ describe('Header Component', () => {
 
     // The menu should be opened (this would need to be adjusted based on actual implementation)
     expect(menuButton).toBeInTheDocument()
+  })
+
+  it('renders language switcher', () => {
+    render(<Header darkMode={false} toggleDarkMode={mockToggleDarkMode} />)
+
+    const languageSwitcher = screen.getByTestId('language-switcher')
+    expect(languageSwitcher).toBeInTheDocument()
   })
 })

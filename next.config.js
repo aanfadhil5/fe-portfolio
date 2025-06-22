@@ -2,6 +2,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
+const { i18n } = require('./next-i18next.config')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -9,6 +11,7 @@ const nextConfig = {
   experimental: {
     appDir: false,
   },
+  i18n,
   images: {
     domains: [
       'ik.imagekit.io',

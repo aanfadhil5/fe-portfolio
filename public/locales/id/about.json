@@ -1,0 +1,34 @@
+{
+  "title": "Tentang Saya",
+  "subtitle": "Kenali saya lebih baik",
+  "description": "Saya seorang pengembang full-stack yang bersemangat dengan fondasi yang kuat dalam teknologi web modern. Saya suka menciptakan pengalaman digital yang tidak hanya fungsional tetapi juga menyenangkan untuk digunakan.",
+  "background": "Dengan latar belakang ilmu komputer dan pengalaman bertahun-tahun, saya mengkhususkan diri dalam membangun aplikasi web yang dapat diskalakan menggunakan teknologi mutakhir seperti React, Node.js, dan platform cloud.",
+  "passion": "Saya bersemangat tentang kode yang bersih, pengalaman pengguna, dan pembelajaran berkelanjutan. Ketika saya tidak coding, Anda dapat menemukan saya menjelajahi teknologi baru, berkontribusi pada proyek open source, atau berbagi pengetahuan dengan komunitas pengembang.",
+  "mission": "Misi saya adalah menciptakan solusi digital yang memberikan dampak positif pada kehidupan dan bisnis orang.",
+  "values": {
+    "title": "Nilai-Nilai Saya",
+    "quality": {
+      "title": "Kualitas",
+      "description": "Saya percaya dalam menulis kode yang bersih dan dapat dipelihara yang tahan lama."
+    },
+    "innovation": {
+      "title": "Inovasi",
+      "description": "Selalu mengeksplorasi teknologi dan pendekatan baru untuk memecahkan masalah kompleks."
+    },
+    "collaboration": {
+      "title": "Kolaborasi",
+      "description": "Bekerja sama dengan tim untuk mencapai tujuan bersama dan memberikan hasil yang luar biasa."
+    },
+    "learning": {
+      "title": "Pembelajaran Berkelanjutan",
+      "description": "Tetap update dengan tren terbaru dan praktik terbaik dalam pengembangan web."
+    }
+  },
+  "fun_facts": {
+    "title": "Fakta Menarik",
+    "coffee_cups": "Cangkir kopi yang dikonsumsi setiap hari",
+    "lines_of_code": "Baris kode yang ditulis",
+    "github_commits": "Commit GitHub tahun ini",
+    "stack_overflow": "Reputasi Stack Overflow"
+  }
+} 

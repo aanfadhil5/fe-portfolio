@@ -1,0 +1,48 @@
+{
+  "title": "Skills & Technologies",
+  "subtitle": "Technologies I work with",
+  "description": "Here are the technologies and tools I use to bring ideas to life",
+  "categories": {
+    "frontend": {
+      "title": "Frontend",
+      "description": "Creating beautiful and responsive user interfaces"
+    },
+    "backend": {
+      "title": "Backend", 
+      "description": "Building robust and scalable server-side applications"
+    },
+    "database": {
+      "title": "Database",
+      "description": "Designing and managing efficient data storage solutions"
+    },
+    "tools": {
+      "title": "Tools & DevOps",
+      "description": "Development tools and deployment technologies"
+    },
+    "other": {
+      "title": "Other",
+      "description": "Additional skills and technologies"
+    }
+  },
+  "proficiency_levels": {
+    "expert": "Expert",
+    "advanced": "Advanced", 
+    "intermediate": "Intermediate",
+    "beginner": "Beginner"
+  },
+  "stats": {
+    "title": "Development Stats",
+    "years_coding": "Years Coding",
+    "projects_built": "Projects Built",
+    "technologies_used": "Technologies Used",
+    "lines_written": "Lines Written"
+  },
+  "learning": {
+    "title": "Currently Learning",
+    "description": "Technologies I'm currently exploring and mastering"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "description": "Professional certifications and achievements"
+  }
+} 

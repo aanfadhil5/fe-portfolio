@@ -1,0 +1,49 @@
+{
+  "title": "Featured Projects",
+  "subtitle": "Some of my recent work",
+  "description": "Here are some projects I've worked on recently. Each project represents a unique challenge and learning experience.",
+  "view_all": "View All Projects",
+  "filter_all": "All",
+  "categories": {
+    "web": "Web Applications",
+    "mobile": "Mobile Apps", 
+    "desktop": "Desktop Apps",
+    "api": "APIs & Backend",
+    "ui": "UI/UX Design",
+    "other": "Other"
+  },
+  "project_details": {
+    "overview": "Overview",
+    "features": "Key Features",
+    "technologies": "Technologies Used",
+    "challenges": "Challenges",
+    "solutions": "Solutions",
+    "results": "Results",
+    "timeline": "Timeline",
+    "team": "Team",
+    "role": "My Role"
+  },
+  "buttons": {
+    "live_demo": "Live Demo",
+    "view_source": "View Source",
+    "case_study": "Case Study",
+    "learn_more": "Learn More"
+  },
+  "status": {
+    "completed": "Completed",
+    "in_progress": "In Progress",
+    "planning": "Planning",
+    "maintenance": "Maintenance"
+  },
+  "achievements": {
+    "title": "Project Achievements",
+    "users": "Active Users",
+    "performance": "Performance Improvement",
+    "uptime": "Uptime",
+    "satisfaction": "User Satisfaction"
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "description": "What clients say about the projects"
+  }
+} 

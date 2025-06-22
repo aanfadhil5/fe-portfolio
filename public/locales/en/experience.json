@@ -1,0 +1,60 @@
+{
+  "title": "Work Experience",
+  "subtitle": "My professional journey",
+  "description": "Here's a timeline of my professional experience and the impact I've made in each role.",
+  "timeline": {
+    "present": "Present",
+    "duration": "{{start}} - {{end}}",
+    "current": "Current"
+  },
+  "job_types": {
+    "full_time": "Full-time",
+    "part_time": "Part-time",
+    "contract": "Contract",
+    "freelance": "Freelance",
+    "internship": "Internship"
+  },
+  "details": {
+    "responsibilities": "Key Responsibilities",
+    "achievements": "Key Achievements",
+    "technologies": "Technologies Used",
+    "team_size": "Team Size",
+    "projects": "Notable Projects",
+    "skills_gained": "Skills Gained"
+  },
+  "achievements": {
+    "performance_improvement": "Performance Improvement",
+    "user_growth": "User Growth",
+    "cost_reduction": "Cost Reduction",
+    "time_saved": "Time Saved",
+    "bugs_fixed": "Bugs Fixed",
+    "features_delivered": "Features Delivered"
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "Academic background",
+    "degree": "Degree",
+    "institution": "Institution",
+    "graduation": "Graduation",
+    "gpa": "GPA",
+    "relevant_courses": "Relevant Courses",
+    "thesis": "Thesis/Final Project",
+    "honors": "Honors & Awards"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Professional certifications",
+    "issued_by": "Issued by",
+    "issue_date": "Issue Date",
+    "expiry_date": "Expiry Date",
+    "credential_id": "Credential ID",
+    "verify": "Verify Certificate"
+  },
+  "volunteer": {
+    "title": "Volunteer Experience",
+    "subtitle": "Community involvement",
+    "organization": "Organization",
+    "cause": "Cause",
+    "impact": "Impact Made"
+  }
+} 

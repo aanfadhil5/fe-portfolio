@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
@@ -325,3 +326,21 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+// Add getStaticProps for i18n support
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en', [
+        'common',
+        'navigation',
+        'hero',
+        'about',
+        'experience',
+        'skills',
+        'projects',
+        'contact',
+      ])),
+    },
+  }
+}
