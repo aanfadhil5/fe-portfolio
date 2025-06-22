@@ -32,7 +32,8 @@ interface EnvironmentVariables {
 }
 
 // Required environment variables that must be present
-const requiredEnvVars = ['NODE_ENV'] as const
+// Note: NODE_ENV is handled specially as it's automatically set by Next.js
+const requiredEnvVars = [] as const
 
 // Optional environment variables with defaults
 const optionalEnvVars = {
@@ -127,8 +128,11 @@ function isValidEmail(email: string): boolean {
  * Creates a typed environment object with all variables
  */
 function createEnvObject(): EnvironmentVariables {
+  // Handle NODE_ENV with fallback - Next.js sets this automatically
+  const nodeEnv = process.env.NODE_ENV || 'development'
+
   return {
-    NODE_ENV: process.env.NODE_ENV as 'development' | 'production' | 'test',
+    NODE_ENV: nodeEnv as 'development' | 'production' | 'test',
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
     NEXT_PUBLIC_SITE_URL:
       process.env.NEXT_PUBLIC_SITE_URL || optionalEnvVars.NEXT_PUBLIC_SITE_URL,
@@ -218,12 +222,24 @@ export function getBaseUrl(): string {
   return 'http://localhost:3000'
 }
 
-// Validate environment on module load (only in development)
-if (isDevelopment) {
-  validateEnvironment()
+/**
+ * Safely get the validated environment object
+ * This handles cases where NODE_ENV might not be set during initial import
+ */
+function getSafeEnvironment(): EnvironmentVariables {
+  try {
+    return validateEnvironment()
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'Environment validation failed, using fallback configuration:',
+      error
+    )
+    return createEnvObject()
+  }
 }
 
 // Export the validated environment object
-export const env = validateEnvironment()
+export const env = getSafeEnvironment()
 
 export default env

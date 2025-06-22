@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { ErrorTracking } from '../components/ErrorTracking'
 import PerformanceMonitor from '../components/PerformanceMonitor'
+import nextI18NextConfig from '../next-i18next.config.js'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -19,4 +20,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default appWithTranslation(MyApp)
+export default appWithTranslation(MyApp, nextI18NextConfig)

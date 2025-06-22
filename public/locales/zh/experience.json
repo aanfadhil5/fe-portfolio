@@ -1,0 +1,60 @@
+{
+  "title": "工作经验",
+  "subtitle": "我的职业旅程",
+  "description": "这是我的职业经历时间线以及我在每个角色中产生的影响。",
+  "timeline": {
+    "present": "至今",
+    "duration": "{{start}} - {{end}}",
+    "current": "当前"
+  },
+  "job_types": {
+    "full_time": "全职",
+    "part_time": "兼职",
+    "contract": "合同",
+    "freelance": "自由职业",
+    "internship": "实习"
+  },
+  "details": {
+    "responsibilities": "主要职责",
+    "achievements": "主要成就",
+    "technologies": "使用技术",
+    "team_size": "团队规模",
+    "projects": "重要项目",
+    "skills_gained": "获得技能"
+  },
+  "achievements": {
+    "performance_improvement": "性能提升",
+    "user_growth": "用户增长",
+    "cost_reduction": "成本降低",
+    "time_saved": "节省时间",
+    "bugs_fixed": "修复错误",
+    "features_delivered": "交付功能"
+  },
+  "education": {
+    "title": "教育背景",
+    "subtitle": "学术背景",
+    "degree": "学位",
+    "institution": "院校",
+    "graduation": "毕业",
+    "gpa": "GPA",
+    "relevant_courses": "相关课程",
+    "thesis": "论文/毕业设计",
+    "honors": "荣誉与奖项"
+  },
+  "certifications": {
+    "title": "认证",
+    "subtitle": "专业认证",
+    "issued_by": "颁发机构",
+    "issue_date": "颁发日期",
+    "expiry_date": "到期日期",
+    "credential_id": "证书ID",
+    "verify": "验证证书"
+  },
+  "volunteer": {
+    "title": "志愿者经历",
+    "subtitle": "社区参与",
+    "organization": "组织",
+    "cause": "事业",
+    "impact": "产生的影响"
+  }
+} 

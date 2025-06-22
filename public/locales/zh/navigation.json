@@ -1,0 +1,23 @@
+{
+  "home": "首页",
+  "about": "关于",
+  "experience": "经验",
+  "skills": "技能",
+  "projects": "项目",
+  "contact": "联系",
+  "blog": "博客",
+  "resume": "简历",
+  "portfolio": "作品集",
+  "services": "服务",
+  "testimonials": "推荐",
+  "go_to_section": "转到{{section}}部分",
+  "main_menu": "主菜单",
+  "mobile_menu": "移动菜单",
+  "social_links": "社交链接",
+  "footer_menu": "页脚菜单",
+  "breadcrumb": "面包屑",
+  "current_page": "当前页面",
+  "page_navigation": "页面导航",
+  "scroll_to_top": "回到顶部",
+  "scroll_indicator": "滚动指示器"
+} 

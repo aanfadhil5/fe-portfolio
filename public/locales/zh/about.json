@@ -1,0 +1,34 @@
+{
+  "title": "关于我",
+  "subtitle": "更好地了解我",
+  "description": "我是一名充满热情的全栈开发者，在现代网络技术方面有着坚实的基础。我喜欢创造不仅功能完善而且使用愉悦的数字体验。",
+  "background": "凭借计算机科学背景和多年实践经验，我专注于使用React、Node.js和云平台等前沿技术构建可扩展的网络应用程序。",
+  "passion": "我对干净的代码、用户体验和持续学习充满热情。当我不在编码时，你可以发现我在探索新技术、为开源项目做贡献，或与开发者社区分享知识。",
+  "mission": "我的使命是创造对人们的生活和企业产生积极影响的数字解决方案。",
+  "values": {
+    "title": "我的价值观",
+    "quality": {
+      "title": "质量",
+      "description": "我相信编写干净、可维护的代码，经得起时间的考验。"
+    },
+    "innovation": {
+      "title": "创新",
+      "description": "始终探索新技术和方法来解决复杂问题。"
+    },
+    "collaboration": {
+      "title": "协作",
+      "description": "与团队合作实现共同目标并交付卓越结果。"
+    },
+    "learning": {
+      "title": "持续学习",
+      "description": "紧跟网络开发的最新趋势和最佳实践。"
+    }
+  },
+  "fun_facts": {
+    "title": "有趣的事实",
+    "coffee_cups": "每日咖啡杯数",
+    "lines_of_code": "编写的代码行数",
+    "github_commits": "今年GitHub提交次数",
+    "stack_overflow": "Stack Overflow声誉"
+  }
+} 

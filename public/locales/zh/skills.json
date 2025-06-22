@@ -1,0 +1,48 @@
+{
+  "title": "技能与技术",
+  "subtitle": "我使用的技术",
+  "description": "这些是我用来将想法变为现实的技术和工具",
+  "categories": {
+    "frontend": {
+      "title": "前端",
+      "description": "创建美观且响应式的用户界面"
+    },
+    "backend": {
+      "title": "后端", 
+      "description": "构建强大且可扩展的服务器端应用程序"
+    },
+    "database": {
+      "title": "数据库",
+      "description": "设计和管理高效的数据存储解决方案"
+    },
+    "tools": {
+      "title": "工具与DevOps",
+      "description": "开发工具和部署技术"
+    },
+    "other": {
+      "title": "其他",
+      "description": "其他技能和技术"
+    }
+  },
+  "proficiency_levels": {
+    "expert": "专家",
+    "advanced": "高级", 
+    "intermediate": "中级",
+    "beginner": "初级"
+  },
+  "stats": {
+    "title": "开发统计",
+    "years_coding": "编程年数",
+    "projects_built": "构建项目",
+    "technologies_used": "使用技术",
+    "lines_written": "编写行数"
+  },
+  "learning": {
+    "title": "目前学习中",
+    "description": "我目前正在探索和掌握的技术"
+  },
+  "certifications": {
+    "title": "认证",
+    "description": "专业认证和成就"
+  }
+} 

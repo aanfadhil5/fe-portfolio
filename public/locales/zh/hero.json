@@ -1,0 +1,30 @@
+{
+  "greeting": "你好，我是",
+  "name": "Farhan Fadhilah",
+  "title": "全栈开发者",
+  "subtitle": "我创造令人惊艳的数字体验",
+  "description": "使用React.js等现代技术打造卓越的用户体验",
+  "cta_primary": "查看我的作品",
+  "cta_secondary": "联系我",
+  "cta_download_cv": "下载简历",
+  "scroll_down": "向下滚动探索",
+  "learn_more_about_me": "了解更多关于我",
+  "years_experience": "年经验",
+  "projects_completed": "完成项目",
+  "happy_clients": "满意客户",
+  "technologies_mastered": "掌握技术",
+  "stats_description": "用热情和精准构建数字解决方案",
+  "job_titles": [
+    "前端开发者",
+    "React.js专家",
+    "企业解决方案构建者"
+  ],
+  "specialties": [
+    "现代网页开发",
+    "响应式设计",
+    "API开发",
+    "数据库设计",
+    "性能优化",
+    "用户体验"
+  ]
+} 

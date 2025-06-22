@@ -1,0 +1,77 @@
+{
+  "title": "联系我",
+  "subtitle": "让我们一起合作",
+  "description": "我总是对新的机会和令人兴奋的项目感兴趣。无论您有问题还是只是想打个招呼，请随时联系我！",
+  "form": {
+    "name": {
+      "label": "姓名",
+      "placeholder": "您的全名",
+      "error": "请输入您的姓名"
+    },
+    "email": {
+      "label": "邮箱",
+      "placeholder": "your.email@example.com",
+      "error": "请输入有效的邮箱地址"
+    },
+    "subject": {
+      "label": "主题",
+      "placeholder": "这是关于什么的？",
+      "error": "请输入主题"
+    },
+    "message": {
+      "label": "消息",
+      "placeholder": "告诉我您的项目或打个招呼...",
+      "error": "请输入您的消息"
+    },
+    "submit": "发送消息",
+    "sending": "发送中...",
+    "success": "消息发送成功！",
+    "error": "发送消息失败，请重试。"
+  },
+  "contact_info": {
+    "title": "联系信息",
+    "email": {
+      "label": "邮箱",
+      "action": "发送邮件"
+    },
+    "phone": {
+      "label": "电话",
+      "action": "立即拨打"
+    },
+    "location": {
+      "label": "位置",
+      "action": "在地图上查看"
+    },
+    "availability": {
+      "label": "可用性",
+      "status": "可接受新项目"
+    }
+  },
+  "social": {
+    "title": "关注我",
+    "description": "在社交媒体上与我联系",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "cta": {
+    "title": "准备开始一个项目？",
+    "description": "让我们讨论如何将您的想法变为现实",
+    "button": "开始项目",
+    "alternative": "或者只是打个招呼！"
+  },
+  "response_time": {
+    "title": "回复时间",
+    "description": "我通常在24小时内回复"
+  },
+  "services": {
+    "title": "我提供的服务",
+    "web_development": "网页开发",
+    "mobile_development": "移动开发",
+    "ui_design": "UI/UX设计",
+    "consulting": "技术咨询",
+    "maintenance": "网站维护"
+  }
+} 
